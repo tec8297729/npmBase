@@ -1,15 +1,16 @@
 const webpack = require('webpack');
 const path = require('path');
-
+const htmlPlugin = require('html-webpack-plugin');
+const resolve = (dir) => {
+  return path.resolve(__dirname, '../' + dir);
+};
 module.exports = function (config) {
   return {
     mode: 'development',
     devtool: 'inline-source-map',
     output: {
-      path: path.resolve(__dirname, '../dist'),
-      filename: '[name].min.js',
-      library: 'fig', // 全局变量
-      libraryTarget: 'umd',
+      path: resolve(`dist`),
+      filename: '[name].js',
     },
     devServer: {
       contentBase: path.resolve(__dirname, '../dist'),
@@ -18,23 +19,22 @@ module.exports = function (config) {
       port: 3200,
       proxy: {
         '/v1': {
-          // 代理api
-          target: 'https://kmsapi.kaikeba.com', // 服务器api地址
-          changeOrigin: true, // 是否跨域
+          target: 'https://kmsapi.kaikeba.com',
+          changeOrigin: true,
           secure: true,
           // ws: true, // proxy websockets
           pathRewrite: {
-            // 重写路径
             // '^/v1': '',
           },
         },
       },
     },
     plugins: [
-      new webpack.NamedModulesPlugin(), // 在控制台中输出可读的模块名
+      new webpack.NamedModulesPlugin(),
+      new htmlPlugin({
+        inject: true,
+        template: './src/index.ejs',
+      }),
     ],
-    performance: {
-      hints: false,
-    },
   };
 };

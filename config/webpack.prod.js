@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 自动清除dist目录
 const TerserPlugin = require('terser-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin'); // gzip压缩文件
 const resolve = (dir) => {
   return path.resolve(__dirname, '../' + dir);
 };
@@ -14,19 +13,16 @@ module.exports = function (config) {
   return {
     mode: 'production',
     devtool: 'none',
-    target: isBuildWin ? 'web' : 'node',
     output: {
-      // 直接挂载cdn的打包挂载win对象上，常规打包使用commonjs
-      path: resolve(`dist${isBuildWin ? '/cdn' : ''}`),
-      filename: isBuildWin ? '[name].min.js' : '[name].js',
-      library: isBuildWin ? 'fig' : '',
-      libraryTarget: isBuildWin ? 'umd' : 'commonjs',
+      path: resolve(`dist`),
+      filename: '[name].js',
+      libraryTarget: 'commonjs',
     },
     optimization: {
-      namedModules: true, // 可读模块标识符以获得更好的调试
-      moduleIds: 'hashed', // 指定算法，hash更好的长期缓存ID
+      namedModules: true,
+      moduleIds: 'hashed',
       splitChunks: {
-        chunks: 'async', // 异步加载代码块
+        chunks: 'all',
         name: true,
       },
       nodeEnv: 'production',
@@ -42,7 +38,6 @@ module.exports = function (config) {
           terserOptions: {
             compress: {
               comparisons: false, // 关闭二进制优化
-              drop_console: true,
             },
             parse: {},
             mangle: true,
@@ -58,13 +53,6 @@ module.exports = function (config) {
         }),
       ],
     },
-    plugins: [
-      new CompressionPlugin({
-        cache: true,
-        algorithm: 'gzip',
-        threshold: 1000, // 文件大于多少才处理
-        minRatio: 0.7, // 压缩比例，默认0.8
-      }),
-    ],
+    plugins: [],
   };
 };

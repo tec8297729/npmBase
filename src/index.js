@@ -1,3 +1,5 @@
-import passport from './passport';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-passport.init();
+ReactDOM.render(<App />, document.getElementById('root'));
