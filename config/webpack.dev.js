@@ -30,7 +30,6 @@ module.exports = function (config) {
       },
     },
     plugins: [
-      new webpack.NamedModulesPlugin(),
       new htmlPlugin({
         inject: true,
         template: './src/index.ejs',
