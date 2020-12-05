@@ -14,7 +14,8 @@
     "build:win": "cross-env BUILD_ENV=win webpack --config=./config/webpack.common.js",
     "pub": "npm publish",
     "prepublish": "npm run build",
-    "test": "cross-env BUILD_ENV=test webpack --config=./config/webpack.common.js"
+    "test": "cross-env BUILD_ENV=test webpack --config=./config/webpack.common.js",
+    "tags": "git tag v5.0.0 && git push origin --tags"
   },
   "main": "./build/main.js",
   "module": "./build/main.es.js",
