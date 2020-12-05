@@ -19,7 +19,7 @@ const webpackConfig = {
     alias: {
       '@': paths.appSrc,
     },
-    extensions: ['.ts', '.js', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
   },
   bail: false,
   module: {

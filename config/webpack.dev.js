@@ -15,7 +15,9 @@ module.exports = function (config) {
       disableHostCheck: true,
       compress: true,
       open: true,
+      host: '0.0.0.0',
       port: 3200,
+      hot: true,
       proxy: {
         '/v1': {
           target: 'https://kmsapi.kaikeba.com',

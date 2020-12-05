@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const paths = require('./paths');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 自动清除dist目录
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function (config) {

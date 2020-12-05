@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env BUILD_ENV=prod webpack serve --config=./config/webpack.common.js",
+    "dev": "cross-env BUILD_ENV=dev webpack serve --config=./config/webpack.common.js",
     "dev:watch": "cross-env BUILD_ENV=dev webpack --watch --config=./config/webpack.common.js",
     "build": "rimraf build && npm run build:prod && npm run build:win",
     "build:prod": "cross-env BUILD_ENV=prod webpack --config=./config/webpack.common.js",
