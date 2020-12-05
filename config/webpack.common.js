@@ -1,7 +1,7 @@
+const { merge } = require('webpack-merge');
 const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 引入分离打包CSS
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const { merge } = require('webpack-merge'); // 合并webpack配置插件
 const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
 const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
 const merge_Webpack_Config = require(`./${configName}`); // 动态加载webpack配置

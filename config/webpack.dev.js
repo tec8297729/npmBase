@@ -14,6 +14,7 @@ module.exports = function (config) {
       contentBase: paths.appBuild,
       disableHostCheck: true,
       compress: true,
+      open: true,
       port: 3200,
       proxy: {
         '/v1': {
