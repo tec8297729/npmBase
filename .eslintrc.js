@@ -40,17 +40,17 @@ module.exports = {
     jasmine: true,
   },
   parserOptions: {
-    ...parserOptions,
     ecmaVersion: 7,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
       modules: true,
     },
+    ...parserOptions,
   },
   rules: {
     'no-console': [1, { allow: ['warn', 'error'] }],
-    'no-use-before-define': 1, // 禁止声明定义前使用
+    'no-use-before-define': 0, // 禁止声明定义前使用
     'react/jsx-wrap-multilines': 0, // 多行JSX括在括号中
     'react/prop-types': 0, // 禁用prop-types中的规则
     'react/forbid-prop-types': 0, // 禁止某些propTypes
@@ -141,8 +141,11 @@ module.exports = {
   settings: {
     // support import modules from TypeScript files in JavaScript files
     'import/resolver': {
-      node: { extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'] },
+      node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
     },
     polyfills: ['fetch', 'Promise', 'URL', 'object-assign'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
   },
 };

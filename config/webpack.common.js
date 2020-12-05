@@ -16,7 +16,9 @@ const config = {
 };
 
 const webpackConfig = {
-  entry: isProd ? paths.appIndexJs : paths.appIndexDevJs,
+  entry: {
+    index: isProd ? paths.appIndexJs : paths.appIndexDevJs,
+  },
   resolve: {
     alias: {
       '@': paths.appSrc,
