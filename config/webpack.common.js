@@ -1,26 +1,23 @@
-const path = require('path');
+const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 引入分离打包CSS
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const merge = require('webpack-merge'); // 合并webpack配置插件
-const isProd = process.env.BUILD_ENV !== 'dev';
+const { merge } = require('webpack-merge'); // 合并webpack配置插件
+const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
 const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
 const merge_Webpack_Config = require(`./${configName}`); // 动态加载webpack配置
 const WebpackBar = require('webpackbar');
 const postcssPlugins = require('./postcssPlugins');
+const appPackageJson = require(paths.appPackageJson);
 
 const config = {
-  BUILD_ENV: process.env.BUILD_ENV, // 打包环境
-};
-
-const resolve = (dir) => {
-  return path.resolve(__dirname, '../' + dir);
+  BUILD_ENV: process.env.BUILD_ENV, // 环境
 };
 
 const webpackConfig = {
-  entry: './src/index.js',
+  entry: isProd ? paths.appIndexJs : paths.appIndexDevJs,
   resolve: {
     alias: {
-      '@': resolve('src'),
+      '@': paths.appSrc,
     },
     extensions: ['.ts', '.js', '.json'],
   },
@@ -34,7 +31,7 @@ const webpackConfig = {
       },
       {
         test: /\.(c|le)ss?$/,
-        include: [resolve('src')],
+        include: [paths.appSrc],
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
@@ -70,7 +67,7 @@ const webpackConfig = {
   },
   plugins: [
     new WebpackBar({
-      name: 'homecommon',
+      name: appPackageJson.name,
       color: '#00AFF2',
       profile: true,
       minimal: false,
@@ -78,15 +75,15 @@ const webpackConfig = {
     }),
     new FriendlyErrorsWebpackPlugin(),
   ],
+  cache: {
+    type: 'filesystem',
+    version: 'v0.0.1',
+  },
+
   node: {
-    module: 'empty',
-    dgram: 'empty',
-    dns: 'mock',
-    fs: 'empty',
-    http2: 'empty',
-    net: 'empty',
-    tls: 'empty',
-    child_process: 'empty',
+    global: false,
+    __filename: false,
+    __dirname: false,
   },
   performance: false,
 };

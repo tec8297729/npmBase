@@ -1,26 +1,31 @@
 {
-  "name": "@kkb/homecommon",
+  "name": "@kkb/zzq",
   "version": "0.0.1",
   "description": "",
-  "main": "./dist/main.js",
   "publishConfig": {
     "registry": "https://registry-npm.kaikeba.com/"
   },
   "scripts": {
     "start": "npm run dev",
-    "build": "rimraf dist && npm run build:prod && npm run build:win",
-    "build:prod": "cross-env BUILD_ENV=prod webpack --config=config/webpack.common.js",
-    "build:win": "cross-env BUILD_ENV=win webpack --config=config/webpack.common.js",
-    "dev": "cross-env BUILD_ENV=dev webpack-dev-server --config=config/webpack.common.js",
+    "build": "rimraf build && npm run build:prod && npm run build:win",
+    "build:prod": "cross-env BUILD_ENV=prod webpack --config=./config/webpack.common.js",
+    "build:win": "cross-env BUILD_ENV=win webpack --config=./config/webpack.common.js",
+    "dev": "cross-env BUILD_ENV=dev webpack serve --open --config=./config/webpack.common.js",
     "pub": "npm publish",
     "prepublish": "npm run build",
-    "test": "cross-env BUILD_ENV=test webpack --config=config/webpack.common.js"
+    "test": "cross-env BUILD_ENV=test webpack --config=./config/webpack.common.js"
   },
-  "keywords": [
-    "report",
-    "light"
+  "main": "./build/main.js",
+  "module": "./build/main.es.js",
+  "keywords": [],
+  "author": {
+    "name": "zzq",
+    "email": "zzq8297729@163.com",
+    "url": "https://www.jonhuu.com"
+  },
+  "files": [
+    "build"
   ],
-  "author": "starkwang",
   "license": "ISC",
   "lint-staged": {
     "*.{js}": [
@@ -28,6 +33,9 @@
       "eslint src/ --fix",
       "git add"
     ]
+  },
+  "peerDependencies": {
+    "react": "^16.x.x || ^17.x.x"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
@@ -57,28 +65,28 @@
     "exports-loader": "^0.7.0",
     "fig-pxtorem": "^0.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.5.0",
     "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-normalize": "^9.0.0",
     "postcss-preset-env": "^6.7.0",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.0.3",
     "typescript": "^4.1.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^4.2.2",
+    "webpack-merge": "^5.4.0",
     "webpackbar": "^5.0.0-3"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@kkb/fig-report": "^0.0.21",
-    "axios": "^0.19.2",
+    "axios": "^0.21.0",
     "mini-css-extract-plugin": "^0.11.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "terser-webpack-plugin": "^3.0.6"
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }

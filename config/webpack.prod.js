@@ -1,10 +1,7 @@
 const webpack = require('webpack');
-const path = require('path');
+const paths = require('./paths');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // 自动清除dist目录
 const TerserPlugin = require('terser-webpack-plugin');
-const resolve = (dir) => {
-  return path.resolve(__dirname, '../' + dir);
-};
 
 module.exports = function (config) {
   const { BUILD_ENV } = config;
@@ -12,18 +9,15 @@ module.exports = function (config) {
 
   return {
     mode: 'production',
-    devtool: 'none',
+    devtool: false,
     output: {
-      path: resolve(`dist`),
+      path: paths.appBuild,
       filename: '[name].js',
       libraryTarget: 'commonjs',
     },
     optimization: {
-      namedModules: true,
-      moduleIds: 'hashed',
       splitChunks: {
         chunks: 'all',
-        name: true,
       },
       nodeEnv: 'production',
       sideEffects: true,
@@ -32,8 +26,7 @@ module.exports = function (config) {
       minimizer: [
         // 压缩js
         new TerserPlugin({
-          cache: true,
-          parallel: true,
+          parallel: true, // 多线程
           extractComments: false, // 移除license文件
           terserOptions: {
             compress: {
@@ -47,12 +40,13 @@ module.exports = function (config) {
               ascii_only: true, // 非ASCII字符转换为UTF-8
             },
           },
-          parallel: true, // 多线程
-          cache: true,
-          sourceMap: true,
         }),
       ],
     },
     plugins: [],
+    externals: {
+      react: 'commonjs react',
+      'react-dom': 'commonjs react-dom',
+    },
   };
 };

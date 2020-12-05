@@ -1,19 +1,17 @@
 const webpack = require('webpack');
-const path = require('path');
+const paths = require('./paths');
 const htmlPlugin = require('html-webpack-plugin');
-const resolve = (dir) => {
-  return path.resolve(__dirname, '../' + dir);
-};
+
 module.exports = function (config) {
   return {
     mode: 'development',
     devtool: 'inline-source-map',
     output: {
-      path: resolve(`dist`),
+      path: paths.appBuild,
       filename: '[name].js',
     },
     devServer: {
-      contentBase: path.resolve(__dirname, '../dist'),
+      contentBase: paths.appBuild,
       disableHostCheck: true,
       compress: true,
       port: 3200,
@@ -32,7 +30,7 @@ module.exports = function (config) {
     plugins: [
       new htmlPlugin({
         inject: true,
-        template: './src/index.ejs',
+        template: paths.appHtml,
       }),
     ],
   };
