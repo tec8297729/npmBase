@@ -38,6 +38,7 @@ module.exports = {
   appIndexJs: resolveModule(resolveApp, 'src/index'), // 入口
   appIndexDevJs: resolveModule(resolveApp, 'src/indexDev'), // 入口
   appBuild: resolveApp('build'),
+  appBuildWindow: resolveApp('build/cdn'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.ejs'),
   appPackageJson: resolveApp('package.json'),

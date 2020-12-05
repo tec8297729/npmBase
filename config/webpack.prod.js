@@ -11,9 +11,10 @@ module.exports = function (config) {
     mode: 'production',
     devtool: false,
     output: {
-      path: paths.appBuild,
-      filename: '[name].js',
-      libraryTarget: 'commonjs',
+      path: isBuildWin ? paths.appBuildWindow : paths.appBuild,
+      filename: isBuildWin ? '[name].es.js' : '[name].js',
+      library: isBuildWin ? 'fig' : 'commonjs',
+      libraryTarget: isBuildWin ? 'umd' : 'commonjs',
     },
     optimization: {
       splitChunks: {
