@@ -5,3 +5,4 @@
 **/flow-typed/**
 src/serviceWorker.js
 public/*
+config/*

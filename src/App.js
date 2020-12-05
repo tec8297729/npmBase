@@ -1,6 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
+import CodeEditorBase from './CodeEditorBase';
 
-const App = (props) => {
-  return <div>3242234</div>;
+const App = () => {
+  return (
+    <div
+      style={{
+        backgroundColor: 'rgba(221,232,12,0.4)',
+      }}
+    >
+      3242234
+      <CodeEditorBase />
+    </div>
+  );
 };
 export default App;

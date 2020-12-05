@@ -2,11 +2,13 @@ const { merge } = require('webpack-merge');
 const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 引入分离打包CSS
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
 const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
 const merge_Webpack_Config = require(`./${configName}`); // 动态加载webpack配置
 const WebpackBar = require('webpackbar');
 const postcssPlugins = require('./postcssPlugins');
+
 const appPackageJson = require(paths.appPackageJson);
 
 const config = {
@@ -25,7 +27,7 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.(js|ts)$/,
+        test: /\.(js|ts|tsx|jsx)$/,
         use: ['babel-loader'],
         // exclude: /node_modules/,
       },
@@ -37,7 +39,6 @@ const webpackConfig = {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: true,
-              hmr: !config.IsProd,
             },
           },
           {
@@ -54,13 +55,7 @@ const webpackConfig = {
               sourceMap: false,
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              plugins: () => postcssPlugins(process.env),
-            },
-          },
+          'postcss-loader',
         ],
       },
     ],
@@ -74,6 +69,10 @@ const webpackConfig = {
       compiledIn: false,
     }),
     new FriendlyErrorsWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].chunk.css',
+    }),
   ],
   cache: {
     type: 'filesystem',

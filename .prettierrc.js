@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 /** @format */
 module.exports = {
   singleQuote: true,
   trailingComma: 'all',
-  printWidth: 100,
   proseWrap: 'never',
   endOfLine: 'lf',
-  overrides: [{
+  overrides: [
+    {
       files: '.prettierrc',
       options: {
         parser: 'json',
