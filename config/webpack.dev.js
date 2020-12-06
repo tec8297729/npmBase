@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const paths = require('./paths');
-const htmlPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = function (config) {
   return {
@@ -31,9 +31,12 @@ module.exports = function (config) {
       },
     },
     plugins: [
-      new htmlPlugin({
+      new HtmlWebpackPlugin({
         inject: true,
         template: paths.appHtml,
+        CONFIG: {
+          BUILD_ENV: config.BUILD_ENV,
+        },
       }),
     ],
   };

@@ -1,4 +1,5 @@
 **/dist/**
+**/build/**
 **/node_modules/**
 **/server.js
 **/webpack.config*.js
@@ -6,3 +7,5 @@
 src/serviceWorker.js
 public/*
 config/*
+postcss.config.js
+tsconfig.json

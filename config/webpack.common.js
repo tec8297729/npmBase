@@ -31,7 +31,7 @@ const webpackConfig = {
       {
         test: /\.(js|ts|tsx|jsx)$/,
         use: ['babel-loader'],
-        // exclude: /node_modules/,
+        exclude: /node_modules/,
       },
       {
         test: /\.(c|le)ss?$/,
