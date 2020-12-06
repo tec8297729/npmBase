@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const paths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+console.log(paths.appBuild, 'paths.appBuild');
 module.exports = function (config) {
   return {
     mode: 'development',
@@ -15,7 +15,7 @@ module.exports = function (config) {
       disableHostCheck: true,
       compress: true,
       open: true,
-      host: '0.0.0.0',
+      // host: '0.0.0.0',
       port: 3200,
       hot: true,
       proxy: {

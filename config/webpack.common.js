@@ -7,8 +7,6 @@ const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
 const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
 const merge_Webpack_Config = require(`./${configName}`); // 动态加载webpack配置
 const WebpackBar = require('webpackbar');
-const postcssPlugins = require('./postcssPlugins');
-
 const appPackageJson = require(paths.appPackageJson);
 
 const config = {
@@ -67,8 +65,8 @@ const webpackConfig = {
       name: appPackageJson.name,
       color: '#00AFF2',
       profile: true,
-      minimal: false,
-      compiledIn: false,
+      // minimal: false,
+      // compiledIn: false,
     }),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
