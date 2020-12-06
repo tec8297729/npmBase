@@ -33,7 +33,8 @@
     ".stylelintrc.js",
     ".prettierrc.js",
     "jest.config.js",
-    "mock/*"
+    "mock/*",
+    "src/1monaco-editor"
   ],
   "typeRoots": ["node_modules/@types"],
   "exclude": [

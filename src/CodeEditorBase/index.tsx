@@ -5,7 +5,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import Editor, { monaco, Monaco, EditorDidMount } from '@monaco-editor/react';
+import Editor, { monaco, EditorDidMount } from '@monaco-editor/react';
 import { EDITOR_THEME, LANGUAGE_TYPE, THEME_NAME } from './config';
 import styles from './style.module.less';
 
@@ -58,7 +58,7 @@ const CodeEditorBase = forwardRef(
       setLanguage, // 设置语言
       setTheme, // 设置主题
       // 设置editor配置参数
-      setEditorOpts: (editorOpts: Monaco) =>
+      setEditorOpts: (editorOpts: any) =>
         setOpts({
           ...opts,
           ...editorOpts,
@@ -98,5 +98,4 @@ const CodeEditorBase = forwardRef(
   },
 );
 
-export { EDITOR_THEME, LANGUAGE_TYPE, THEME_NAME };
-export default CodeEditorBase;
+export { CodeEditorBase, EDITOR_THEME, LANGUAGE_TYPE, THEME_NAME };

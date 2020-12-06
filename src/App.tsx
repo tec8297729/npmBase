@@ -1,5 +1,5 @@
 import React from 'react';
-import CodeEditorBase from './CodeEditorBase';
+import { CodeEditorBase } from './CodeEditorBase';
 
 const App = () => {
   return (

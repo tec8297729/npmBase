@@ -9,11 +9,15 @@ module.exports = function (config) {
 
   return {
     mode: 'production',
-    devtool: false,
+    devtool: 'inline-source-map',
     output: {
       path: isBuildWin ? paths.appBuildWindow : paths.appBuild,
       filename: isBuildWin ? '[name].es.js' : '[name].js',
-      library: isBuildWin ? 'fig' : 'commonjs',
+      library: isBuildWin
+        ? 'fig'
+        : {
+            type: 'commonjs',
+          },
       libraryTarget: isBuildWin ? 'umd' : 'commonjs',
     },
     optimization: {
@@ -47,7 +51,6 @@ module.exports = function (config) {
     plugins: [],
     externals: {
       react: 'commonjs react',
-      'react-dom': 'commonjs react-dom',
     },
   };
 };
