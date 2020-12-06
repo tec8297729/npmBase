@@ -1,6 +1,6 @@
 const { merge } = require('webpack-merge');
 const paths = require('./paths');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin'); // 引入分离打包CSS
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
@@ -10,7 +10,7 @@ const WebpackBar = require('webpackbar');
 const appPackageJson = require(paths.appPackageJson);
 
 const config = {
-  BUILD_ENV: process.env.BUILD_ENV, // 环境
+  ...process.env, // 环境
 };
 
 const webpackConfig = {

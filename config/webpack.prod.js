@@ -2,10 +2,13 @@ const webpack = require('webpack');
 const paths = require('./paths');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = function (config) {
-  const { BUILD_ENV } = config;
+  const { BUILD_ENV, TYPE_ENV } = config;
   const isBuildWin = BUILD_ENV === 'win'; // 打包是否挂载win对象
+  const isCopyLink = TYPE_ENV === 'link';
 
   return {
     mode: 'production',
@@ -48,7 +51,27 @@ module.exports = function (config) {
         }),
       ],
     },
-    plugins: [],
+    plugins: [
+      isCopyLink &&
+        new FileManagerPlugin({
+          events: {
+            onStart: {},
+            onEnd: {
+              copy: [
+                {
+                  source: paths.appPackageJson,
+                  destination: paths.linkPackageProject,
+                },
+                {
+                  source: paths.appBuild,
+                  destination: paths.linkDistProject,
+                },
+              ],
+            },
+          },
+          runTasksInSeries: true,
+        }),
+    ].filter(Boolean),
     externals: {
       react: 'commonjs react',
     },
