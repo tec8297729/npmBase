@@ -7,18 +7,18 @@
   },
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env BUILD_ENV=dev webpack serve --config=./config/webpack.common.js",
-    "dev:watch": "cross-env BUILD_ENV=dev webpack --watch --config=./config/webpack.common.js",
+    "dev": "cross-env BUILD_ENV=dev webpack serve",
+    "dev:watch": "cross-env BUILD_ENV=dev webpack --watch",
     "build": "rimraf build && npm run build:prod && npm run build:win",
-    "build:prod": "cross-env BUILD_ENV=prod webpack --config=./config/webpack.common.js",
-    "build:win": "cross-env BUILD_ENV=win webpack --config=./config/webpack.common.js",
+    "build:prod": "cross-env BUILD_ENV=prod webpack",
+    "build:win": "cross-env BUILD_ENV=win webpack",
     "pub": "npm publish",
     "prepublish": "npm run build",
-    "test": "cross-env BUILD_ENV=test webpack --config=./config/webpack.common.js",
+    "test": "cross-env BUILD_ENV=test webpack",
     "tags": "git tag v5.0.0 && git push origin --tags"
   },
-  "main": "./build/main.js",
-  "module": "./build/main.es.js",
+  "main": "./build/index.js",
+  "module": "./build/index.js",
   "keywords": [],
   "author": {
     "name": "zzq",
@@ -40,6 +40,7 @@
     "react": "^16.x.x || ^17.x.x"
   },
   "devDependencies": {
+    "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^4.0.0",

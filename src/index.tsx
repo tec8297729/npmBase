@@ -1,5 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import CodeEditorBase from './CodeEditorBase';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+export { CodeEditorBase };
