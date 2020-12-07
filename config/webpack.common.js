@@ -29,7 +29,14 @@ const webpackConfig = {
     rules: [
       {
         test: /\.(js|ts|tsx|jsx)$/,
-        use: ['babel-loader'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       {

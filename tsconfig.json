@@ -4,9 +4,9 @@
     "module": "esnext",
     "target": "es6",
     "lib": ["esnext", "dom"],
-    "sourceMap": true,
+    "sourceMap": false,
     "baseUrl": ".",
-    "jsx": "preserve",
+    "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
@@ -17,25 +17,12 @@
     "skipLibCheck": true,
     "experimentalDecorators": true,
     "strict": true,
+    "declaration": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "mock/**/*",
-    "src/**/*",
-    "tests/**/*",
-    "test/**/*",
-    "__test__/**/*",
-    "typings/**/*",
-    "config/**/*",
-    ".eslintrc.js",
-    ".stylelintrc.js",
-    ".prettierrc.js",
-    "jest.config.js",
-    "mock/*",
-    "src/1monaco-editor"
-  ],
+  "include": ["src/**/*", "typings"],
   "typeRoots": ["node_modules/@types"],
   "exclude": [
     "node_modules",
