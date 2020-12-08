@@ -22,7 +22,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "typings"],
+  "include": ["src/**/*", "src/typings"],
   "typeRoots": ["node_modules/@types"],
   "exclude": [
     "node_modules",

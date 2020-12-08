@@ -16,7 +16,7 @@ module.exports = function (config) {
       compress: true,
       open: true,
       // host: '0.0.0.0',
-      port: 3200,
+      port: 8999,
       hot: true,
       proxy: {
         '/v1': {

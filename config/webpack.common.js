@@ -30,12 +30,13 @@ const webpackConfig = {
       {
         test: /\.(js|ts|tsx|jsx)$/,
         use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              cacheDirectory: true,
-            },
-          },
+          // {
+          //   loader: 'babel-loader',
+          //   options: {
+          //     cacheDirectory: true,
+          //   },
+          // },
+          'ts-loader',
         ],
         exclude: /node_modules/,
       },
@@ -69,13 +70,13 @@ const webpackConfig = {
     ],
   },
   plugins: [
-    new WebpackBar({
-      name: appPackageJson.name,
-      color: '#00AFF2',
-      profile: true,
-      minimal: false,
-      compiledIn: false,
-    }),
+    // new WebpackBar({
+    //   name: appPackageJson.name,
+    //   color: '#00AFF2',
+    //   profile: true,
+    //   minimal: false,
+    //   compiledIn: false,
+    // }),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
