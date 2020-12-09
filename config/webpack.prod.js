@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const paths = require('./paths');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 
 module.exports = function (config) {
@@ -71,6 +71,14 @@ module.exports = function (config) {
           },
           runTasksInSeries: true,
         }),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: paths.appTypings,
+            to: paths.appBuildTypings,
+          },
+        ],
+      }),
     ].filter(Boolean),
     externals: {
       react: 'commonjs react',

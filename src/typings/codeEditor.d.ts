@@ -1,12 +1,13 @@
-// interface IEditorOptions {}
-
 interface EditorBaseProps {
   id?: string;
   value?: string;
   className?: string;
   loading?: string | React.ReactElement | React.FC;
-  editorOptions?: object;
-  lan?: string;
+  /**
+   * 配置参数 https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditoroptions.html
+   */
+  editorOptions?: IEditorOptions | object;
+  lan?: LanguageType | string;
   codeTheme?: CodeTheme | string;
   vs?: string;
 }
@@ -21,9 +22,10 @@ export interface IOjEditorCpProps extends EditorBaseProps {
 }
 
 // 主题
-type CodeTheme = 'light' | 'vs-dark';
+export type CodeTheme = 'light' | 'vs-dark';
 
-type Lan =
+// 语言
+export type LanguageType =
   | 'html'
   | 'css'
   | 'json'
@@ -46,3 +48,22 @@ type Lan =
   | 'typescript'
   | 'xml'
   | 'yaml';
+
+// editor配置参数
+export interface IEditorOptions {
+  minimap?: { enabled: boolean };
+  readOnly?: boolean;
+  cursorStyle?: 'line' | 'block';
+  fontSize?: number;
+  contextmenu?: boolean;
+  scrollbar?: {
+    useShadows: boolean;
+    verticalHasArrows: boolean;
+    horizontalHasArrows: boolean;
+    vertical: 'auto' | 'visible' | 'hidden';
+    horizontal: 'auto' | 'visible' | 'hidden';
+  };
+  showFoldingControls?: 'always' | 'mouseover';
+  scrollBeyondLastLine?: boolean;
+  tabSize?: number;
+}

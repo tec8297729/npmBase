@@ -1,6 +1,6 @@
+import { IEditorOptions } from '../typings/codeEditor';
 // 组件默认参数
-// editor配置 https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditoroptions.html
-export const editorInitOpts = {
+export const editorInitOpts: IEditorOptions = {
   minimap: { enabled: false }, // 关闭地图
   readOnly: false, // 只读
   cursorStyle: 'line', // 光标样式 'block' or 'line'

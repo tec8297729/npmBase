@@ -9,10 +9,10 @@ import {
   ControlledEditor,
   ControlledEditorOnChange,
 } from '@monaco-editor/react';
-import { initMonaco } from '@/utils';
-import { EDITOR_THEME, LANGUAGE_TYPE } from '@/consts';
-import { editorInitOpts } from '@/consts/editorDefault';
-import { IOjEditorCpProps } from '@/typings/codeEditor';
+import { initMonaco } from '../../utils';
+import { EDITOR_THEME, LANGUAGE_TYPE } from '../../consts';
+import { editorInitOpts } from '../../consts/editorDefault';
+import { IOjEditorCpProps } from '../../typings/codeEditor';
 
 // 受控组件
 const OjEditorCp = forwardRef(
@@ -87,4 +87,3 @@ const OjEditorCp = forwardRef(
 );
 
 export { OjEditorCp };
-export default OjEditorCp;

@@ -41,10 +41,12 @@ module.exports = {
   appIndexDevJs: resolveModule(resolveApp, 'src/indexDev'), // 入口
   appBuild: resolveApp('build'),
   appBuildWindow: resolveApp('build/cdn'),
+  appBuildTypings: resolveApp('build/typings'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.ejs'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
+  appTypings: resolveApp('src/typings'),
   appTsConfig: resolveApp('tsconfig.json'),
   appJsConfig: resolveApp('jsconfig.json'),
   appPackageJson: resolveApp('package.json'),

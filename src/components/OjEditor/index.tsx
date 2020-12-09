@@ -6,10 +6,10 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
-import { EDITOR_THEME, LANGUAGE_TYPE } from '@/consts';
-import { editorInitOpts } from '@/consts/editorDefault';
-import { IOjEditorProps } from '@/typings/codeEditor';
 import { initMonaco } from '@/utils';
+import { EDITOR_THEME, LANGUAGE_TYPE } from '../../consts';
+import { editorInitOpts } from '../../consts/editorDefault';
+import { IOjEditorProps } from '../../typings/codeEditor';
 
 // 非受控组件
 const OjEditor = forwardRef(
@@ -91,4 +91,3 @@ const OjEditor = forwardRef(
 );
 
 export { OjEditor };
-export default OjEditor;
