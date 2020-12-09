@@ -9,10 +9,24 @@ import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import { initMonaco } from '@/utils';
 import { EDITOR_THEME, LANGUAGE_TYPE } from '../../consts';
 import { editorInitOpts } from '../../consts/editorDefault';
-import { IOjEditorProps } from '../../typings/codeEditor';
+import {
+  IOjEditorProps,
+  LanguageType,
+  CodeThemeType,
+  EditorOptions,
+} from '../../typings/codeEditor';
+
+interface EditorRef {
+  getValue: () => string;
+  setValue: (v: string) => void;
+  setLanguage: (v: LanguageType) => void;
+  setTheme: (v: CodeThemeType) => void;
+  setEditorOpts: (options: EditorOptions) => void;
+  formatCode: () => void;
+}
 
 // 非受控组件
-const OjEditor = forwardRef(
+const OjEditor = forwardRef<EditorRef, IOjEditorProps>(
   (
     {
       id,
@@ -24,18 +38,16 @@ const OjEditor = forwardRef(
       lan = LANGUAGE_TYPE.javascript,
       codeTheme = EDITOR_THEME.VisualStudioDark,
       vs, // 自定义monaco-editor的cdn
-    }: IOjEditorProps,
+    },
     ref,
   ) => {
     const editorRef = useRef<any>();
-    const [language, setLanguage] = useState(lan);
-    const [theme, setTheme] = useState(codeTheme);
-
-    const [opts, setOpts] = useState({
+    const [language, setLanguage] = useState<LanguageType>(lan);
+    const [theme, setTheme] = useState<CodeThemeType>(codeTheme);
+    const [opts, setOpts] = useState<EditorOptions>({
       ...editorInitOpts,
       ...editorOptions,
     });
-
     // 初始化editor
     const handleEditorDidMount: EditorDidMount = (_, editor) => {
       editorRef.current = editor;
@@ -49,7 +61,7 @@ const OjEditor = forwardRef(
       setLanguage, // 设置语言
       setTheme, // 设置主题
       // 设置editor配置参数
-      setEditorOpts: (editorOpts: any) =>
+      setEditorOpts: (editorOpts) =>
         setOpts({
           ...opts,
           ...editorOpts,

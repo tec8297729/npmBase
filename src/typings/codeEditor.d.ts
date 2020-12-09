@@ -8,7 +8,7 @@ interface EditorBaseProps {
    */
   editorOptions?: IEditorOptions | object;
   lan?: LanguageType | string;
-  codeTheme?: CodeTheme | string;
+  codeTheme?: CodeThemeType | string;
   vs?: string;
 }
 // 非受控
@@ -21,10 +21,13 @@ export interface IOjEditorCpProps extends EditorBaseProps {
   onChange: (v: string | number | undefined) => {};
 }
 
-// 主题
-export type CodeTheme = 'light' | 'vs-dark';
+// 配置类型
+export type EditorOptions = IEditorOptions | object;
 
-// 语言
+// 主题类型
+export type CodeThemeType = 'light' | 'vs-dark' | string;
+
+// 语言类型
 export type LanguageType =
   | 'html'
   | 'css'
@@ -47,7 +50,8 @@ export type LanguageType =
   | 'swift'
   | 'typescript'
   | 'xml'
-  | 'yaml';
+  | 'yaml'
+  | string;
 
 // editor配置参数
 export interface IEditorOptions {
