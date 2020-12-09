@@ -32,7 +32,7 @@ const resolveModule = (resolveFn, filePath) => {
   return resolveFn(`${filePath}.js`);
 };
 // 指定link项目内
-const copyProject = 'wit-cms小抄后台/node_modules/@kkb/demo';
+const copyProject = '../fe-tool/fig-ssr/node_modules/@kkb/demo';
 
 // config after eject: we're in ./config/
 module.exports = {
