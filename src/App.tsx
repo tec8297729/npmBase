@@ -1,5 +1,4 @@
 import React from 'react';
-import { CodeEditorBase } from './CodeEditorBase';
 
 const App = () => {
   return (
@@ -10,7 +9,6 @@ const App = () => {
       }}
     >
       3242234
-      <CodeEditorBase />
     </div>
   );
 };

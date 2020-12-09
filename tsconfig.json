@@ -8,11 +8,15 @@
     "baseUrl": ".",
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "noUnusedParameters": true,
     "noImplicitReturns": true,
+    "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false, // 定义参数必须都使用
     "allowJs": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
@@ -31,6 +35,8 @@
     "scripts",
     "src/.umi/*",
     "webpack",
-    "jest"
+    "jest",
+    "lib",
+    "es"
   ]
 }

@@ -7,6 +7,7 @@ const editorRef = useRef();
 <CodeEditorBase
   ref={editorRef} // 暴露ref，挂载系列方法
   className={styles.codeWrap} // 样式，控制宽高
+  value={'122'} // 内容
   editorDidMount={editorDidMount} // 组件初始化后执行，只有初始化后，codeRef对象上方法才可使用
   // editor配置 https://microsoft.github.io/monaco-editor/api/interfaces/monaco.editor.ieditoroptions.html
   editorOptions={{
