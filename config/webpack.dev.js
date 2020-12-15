@@ -13,6 +13,7 @@ module.exports = function (config) {
     devServer: {
       contentBase: paths.appBuild,
       disableHostCheck: true,
+      historyApiFallback: true,
       compress: true,
       open: true,
       // host: '0.0.0.0',
@@ -20,7 +21,7 @@ module.exports = function (config) {
       hot: true,
       proxy: {
         '/v1': {
-          target: 'https://kmsapi.kaikeba.com',
+          target: 'https://api.kaikeba.com',
           changeOrigin: true,
           secure: true,
           // ws: true, // proxy websockets

@@ -16,11 +16,6 @@ export interface IOjEditorProps extends EditorBaseProps {
   editorDidMount?: (editor: any) => {};
 }
 
-// 受控组件props
-export interface IOjEditorCpProps extends EditorBaseProps {
-  onChange: (v: string | number | undefined) => {};
-}
-
 // 配置类型
 export type EditorOptions = IEditorOptions | object;
 

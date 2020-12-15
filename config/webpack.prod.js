@@ -1,18 +1,18 @@
-const webpack = require('webpack');
 const paths = require('./paths');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = function (config) {
-  const { BUILD_ENV, TYPE_ENV } = config;
+  const { BUILD_ENV, TYPE_ENV, ANA_TYPE } = config;
   const isBuildWin = BUILD_ENV === 'win'; // 打包是否挂载win对象
   const isCopyLink = TYPE_ENV === 'link';
 
   return {
     mode: 'production',
-    devtool: 'inline-source-map',
+    devtool: false,
     output: {
       path: isBuildWin ? paths.appBuildWindow : paths.appBuild,
       filename: isBuildWin ? '[name].es.js' : '[name].js',
@@ -26,6 +26,14 @@ module.exports = function (config) {
     optimization: {
       splitChunks: {
         chunks: 'all',
+        cacheGroups: {
+          styles: {
+            type: 'css/mini-extract',
+            chunks: 'all',
+            // If you need this uncomment
+            // enforce: true,
+          },
+        },
       },
       nodeEnv: 'production',
       sideEffects: true,
@@ -52,6 +60,7 @@ module.exports = function (config) {
       ],
     },
     plugins: [
+      ANA_TYPE && new BundleAnalyzerPlugin(),
       isCopyLink &&
         new FileManagerPlugin({
           events: {

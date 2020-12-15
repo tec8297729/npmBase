@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
 } from 'react';
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
-import { initMonaco } from '@/utils';
+import { initMonaco } from '../../utils';
 import { EDITOR_THEME, LANGUAGE_TYPE } from '../../consts';
 import { editorInitOpts } from '../../consts/editorDefault';
 import {

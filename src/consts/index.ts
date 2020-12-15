@@ -1,4 +1,4 @@
-// code主题名称
+/** code主题名称 */
 export const THEME_NAME = {
   VisualStudio: 'Visual Studio',
   VisualStudioDark: 'Visual Studio Dark',

@@ -2,10 +2,9 @@ const { merge } = require('webpack-merge');
 const paths = require('./paths');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-
 const isProd = ['prod', 'win'].includes(process.env.BUILD_ENV);
 const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
-const merge_Webpack_Config = require(`./${configName}`); // 动态加载webpack配置
+const merge_Webpack_Config = require(`./${configName}`); // 加载webpack配置
 const WebpackBar = require('webpackbar');
 const appPackageJson = require(paths.appPackageJson);
 
@@ -67,6 +66,16 @@ const webpackConfig = {
           'postcss-loader',
         ],
       },
+      // Images
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
+      },
+      // Fonts and SVGs
+      {
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: 'asset/inline',
+      },
     ],
   },
   plugins: [
@@ -83,11 +92,10 @@ const webpackConfig = {
       chunkFilename: 'css/[name].[contenthash:8].chunk.css',
     }),
   ],
-  cache: {
-    type: 'filesystem',
-    version: 'v0.0.1',
-  },
-
+  // cache: {
+  //   type: 'filesystem',
+  //   version: 'v0.0.1',
+  // },
   node: {
     global: false,
     __filename: false,

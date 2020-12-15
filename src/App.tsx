@@ -8,7 +8,7 @@ const App = () => {
         width: 600,
       }}
     >
-      3242234
+      hello npmBase
     </div>
   );
 };
