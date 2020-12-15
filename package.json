@@ -1,6 +1,6 @@
 {
   "name": "@kkb/demo",
-  "version": "0.0.1",
+  "version": "5.0.2",
   "description": "",
   "publishConfig": {
     "registry": "https://registry-npm.kaikeba.com/"
@@ -18,7 +18,7 @@
     "pub": "npm publish",
     "prepublish": "npm run build",
     "test": "cross-env BUILD_ENV=test webpack",
-    "tags": "git tag v5.0.0 && git push origin --tags"
+    "tags": "git tag v5.0.2 && git push origin --tags"
   },
   "main": "./build/index.js",
   "module": "./build/index.js",
