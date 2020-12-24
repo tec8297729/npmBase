@@ -14,7 +14,6 @@ const config = {
 
 const webpackConfig = {
   entry: {
-    // index: paths.appIndexJs,
     index: isProd ? paths.appIndexJs : paths.appIndexDevJs,
   },
   resolve: {
@@ -79,13 +78,13 @@ const webpackConfig = {
     ],
   },
   plugins: [
-    // new WebpackBar({
-    //   name: appPackageJson.name,
-    //   color: '#00AFF2',
-    //   profile: true,
-    //   minimal: false,
-    //   compiledIn: false,
-    // }),
+    new WebpackBar({
+      name: appPackageJson.name,
+      color: '#00AFF2',
+      profile: true,
+      minimal: false,
+      compiledIn: false,
+    }),
     new FriendlyErrorsWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
