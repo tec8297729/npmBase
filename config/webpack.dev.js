@@ -12,7 +12,6 @@ module.exports = function (config) {
     },
     devServer: {
       contentBase: paths.appSrc,
-      publicPath: paths.appPublic,
       disableHostCheck: true,
       historyApiFallback: true,
       compress: true,

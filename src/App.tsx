@@ -9,7 +9,7 @@ const App = () => {
       }}
     >
       hello npmBase
-    </div>
+    </div> 
   );
 };
 export default App;
