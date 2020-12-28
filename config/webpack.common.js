@@ -7,6 +7,7 @@ const configName = `./webpack.${isProd ? 'prod' : 'dev'}.js`;
 const merge_Webpack_Config = require(`./${configName}`); // 加载webpack配置
 const WebpackBar = require('webpackbar');
 const appPackageJson = require(paths.appPackageJson);
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 
 const config = {
   ...process.env, // 环境
