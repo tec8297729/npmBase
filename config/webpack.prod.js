@@ -62,6 +62,7 @@ module.exports = function (config) {
     plugins: [
       ANA_TYPE && new BundleAnalyzerPlugin(),
       isCopyLink &&
+        paths.linkPackageProject &&
         new FileManagerPlugin({
           events: {
             onStart: {},
