@@ -21,10 +21,10 @@ module.exports = function (config) {
       hot: true,
       proxy: {
         '/v1': {
-          target: 'https://api.kaikeba.com',
+          target: 'https://api.jonhuu.com',
           changeOrigin: true,
           secure: true,
-          // ws: true, // proxy websockets
+          ws: true, // proxy websockets
           pathRewrite: {
             // '^/v1': '',
           },

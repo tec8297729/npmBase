@@ -53,13 +53,15 @@ const webpackConfig = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              modules: true,
+              localIdentName: '[local]_[contenthash:8]',
             },
           },
           {
             loader: 'less-loader',
             options: {
-              javascriptEnabled: true,
+              lessOptions: {
+                javascriptEnabled: true,
+              },
               sourceMap: false,
             },
           },
