@@ -1,13 +1,13 @@
 {
-  "name": "@kkb/demo",
+  "name": "@kkb/npmbase",
   "version": "0.0.1",
   "description": "",
   "publishConfig": {
     "registry": "https://registry-npm.kaikeba.com/"
   },
   "scripts": {
-    "build": "father build",
-    "build:watch": "father build --watch",
+    "build": "father-build",
+    "build:watch": "father-build --watch",
     "doc:dev": "dumi dev",
     "doc:build": "dumi build",
     "test": "father test",
@@ -41,8 +41,8 @@
   "peerDependencies": {
     "@ant-design/icons": ">=4.0.0",
     "antd": ">=4.8.0",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0",
     "react-router-dom": ">-5.0.0"
   },
   "dependencies": {
@@ -59,9 +59,12 @@
     "@ant-design/icons": "4.5.0",
     "@types/classnames": "2.2.11",
     "@types/react-router-dom": "5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^4.15.1",
+    "@typescript-eslint/typescript-estree": "^4.15.1",
     "antd": "4.12.3",
     "dumi": "^1.1.4",
-    "eslint": "7.19.0",
+    "eslint": "^7.20.0",
     "eslint-config-airbnb": "18.2.1",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-airbnb-typescript": "12.3.1",
@@ -78,7 +81,6 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-unicorn": "27.0.0",
     "father-build": "^1.19.1",
-    "prettier": "^2.2.1",
     "react-router-dom": "5.2.0",
     "typescript": "4.1.5"
   }

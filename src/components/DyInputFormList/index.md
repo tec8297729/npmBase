@@ -7,23 +7,26 @@ nav:
 group:
   title: 自定义分组名称
   order: 0 # 控制分组顺序，数字越小越靠前，默认以路径长度和字典序排序
-
 ---
 
 ## 组件使用案例
 
-``` tsx
+```jsx
 /**
  * title: 我是标题
  * desc: 我是简介，我可以用 `Markdown` 来编写
  */
 import DyInputFormList from './index';
 
-  import React from 'react';
+import React from 'react';
 
 export default () => {
-  return <><div>Click me</div>
-  <DyInputFormList>Click me</DyInputFormList></>
+  return (
+    <>
+      <div>Click me</div>
+      <DyInputFormList>Click me</DyInputFormList>
+    </>
+  );
 };
 ```
 
