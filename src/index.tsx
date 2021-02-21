@@ -1,3 +1,3 @@
-import DyInputFormList2 from "./components/GmFormCommon/DyInputFormList";
+import DyInputFormList from "./components/DyInputFormList";
 
-export { DyInputFormList2 };
+export { DyInputFormList };

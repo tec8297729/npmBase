@@ -1,5 +1,7 @@
 # 开发说明
 
+文档语法介绍 https://d.umijs.org/zh-CN/guide/basic
+
 ## 关于 dependencies、peerDependencies 和 external
 
 cjs 和 esm 格式打包方式选 rollup 时有个约定，dependencies 和 peerDependencies 里的内容会被 external

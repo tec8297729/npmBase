@@ -9,11 +9,10 @@ import styles from './index.less';
 
 interface DyInputFormListProps {
   /**
-   * @api {get} /url 接口标题
-   * @apiGroup group接口分类组
-   * @apiParam {string} name 参数描述
-   * @apiSuccess {string} lastname 响应字段描述
-   * @apiDescription 描述
+   * 可以这样写属性描述
+   * @description       也可以显式加上描述名
+   * @description.zh-CN 还支持不同的 locale 后缀来实现多语言描述
+   * @default           支持定义默认值
    */
   name: string;
   rules?: Rule[] | undefined;

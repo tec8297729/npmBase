@@ -14,6 +14,9 @@ export default {
     },
   },
   // extractCSS: true,
+  cssModules: {
+    generateScopedName: 'vgeForm_[name]__[local]___[hash:base64:5]',
+  },
   runtimeHelpers: true,
   autoprefixer: {
     overrideBrowserslist: [
@@ -23,4 +26,5 @@ export default {
       'ie >= 11',
     ],
   },
+  
 };
