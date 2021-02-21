@@ -16,6 +16,9 @@
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "types": "./dist/index.d.ts",
+  "maintainers": [
+    "zhanzhiqiang"
+  ],
   "keywords": [],
   "author": {
     "name": "tec",
@@ -31,8 +34,14 @@
     "dist"
   ],
   "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "vcm"
+    }
+  },
   "lint-staged": {
-    "*.{js}": [
+    "*.{js,jsx,ts,tsx}": [
       "pretty-quick --staged",
       "eslint src/ --fix",
       "git add"
@@ -75,7 +84,9 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-unicorn": "27.0.0",
     "father-build": "^1.19.1",
+    "husky": "^5.0.9",
     "react-router-dom": "5.2.0",
-    "typescript": "4.1.5"
+    "typescript": "4.1.5",
+    "vcm-cli": "^1.0.5"
   }
 }
