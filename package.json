@@ -6,8 +6,8 @@
     "registry": "https://registry-npm.kaikeba.com/"
   },
   "scripts": {
+    "dev": "father-build --watch",
     "build": "father-build",
-    "build:watch": "father-build --watch",
     "doc:dev": "dumi dev",
     "doc:build": "dumi build",
     "test": "father test",
@@ -43,20 +43,14 @@
     "antd": ">=4.8.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0",
-    "react-router-dom": ">-5.0.0"
+    "react-router-dom": ">=5.0.0"
   },
   "dependencies": {
-    "@babel/runtime": "7.12.18",
-    "@kkb/oj-editor": "0.0.8",
-    "@types/lodash-es": "4.17.4",
-    "@types/query-string": "6.3.0",
-    "classnames": "2.2.6",
-    "lodash-es": "4.17.20",
-    "query-string": "6.14.0",
-    "react-viewer": "3.2.2"
+    "classnames": "2.2.6"
   },
   "devDependencies": {
     "@ant-design/icons": "4.5.0",
+    "@babel/runtime": "7.12.18",
     "@types/classnames": "2.2.11",
     "@types/react-router-dom": "5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
