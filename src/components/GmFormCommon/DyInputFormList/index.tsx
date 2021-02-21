@@ -8,6 +8,13 @@ import TextArea from '../TextArea';
 import styles from './index.less';
 
 interface DyInputFormListProps {
+  /**
+   * @api {get} /url 接口标题
+   * @apiGroup group接口分类组
+   * @apiParam {string} name 参数描述
+   * @apiSuccess {string} lastname 响应字段描述
+   * @apiDescription 描述
+   */
   name: string;
   rules?: Rule[] | undefined;
   textAreaRules?: Rule[] | undefined;
