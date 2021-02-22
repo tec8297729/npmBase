@@ -78,7 +78,8 @@ module.exports = {
         optionalDependencies: true,
         devDependencies: [
           '**/tests/**.{ts,js,jsx,tsx}',
-          '**/_test_/**.{ts,js,jsx,tsx}',
+          '**/__tests__/**.{ts,js,jsx,tsx}',
+          '**/__test__/**.{ts,js,jsx,tsx}',
           '/mock/**/**.{ts,js,jsx,tsx}',
           '**/**.test.{ts,js,jsx,tsx}',
           '**/_mock.{ts,js,jsx,tsx}',

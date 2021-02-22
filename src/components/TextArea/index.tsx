@@ -4,8 +4,8 @@ import styles from './index.module.less';
 
 interface TextAreaProps {
   maxLength: number;
-  placeholder: string;
-  width: number | string;
+  placeholder?: string;
+  width?: number | string;
   height?: number;
   onChange?: Function;
   value?: string;

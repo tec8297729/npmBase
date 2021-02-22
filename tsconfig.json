@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "build",
     "module": "esnext",
-    "target": "es5",
+    "target": "esnext",
     "lib": ["esnext", "dom"],
     "sourceMap": false,
     "baseUrl": ".",
@@ -26,7 +26,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "setup.ts"],
   "typeRoots": ["node_modules/@types"],
   "exclude": [
     "node_modules",

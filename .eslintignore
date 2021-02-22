@@ -9,5 +9,4 @@ public/*
 config/*
 postcss.config.js
 tsconfig.json
-monaco-editor/*
-
+setupTests.ts
