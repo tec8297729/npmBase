@@ -23,13 +23,7 @@ if (!fs.existsSync(path.join(process.env.PWD || '.', './tsconfig.json'))) {
   };
 }
 module.exports = {
-  extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
-  ],
+  extends: ['airbnb', 'airbnb-typescript', 'prettier'],
   plugins: ['eslint-comments', 'jest', 'unicorn', 'react-hooks'],
   env: {
     browser: true,
