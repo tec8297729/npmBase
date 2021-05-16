@@ -23,17 +23,17 @@
     "strict": true,
     "declaration": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["packages/father/src/*"]
     }
   },
-  "include": ["src/**/*", "setup.ts"],
+  "include": ["packages/father/src/**/*", "setup.ts"],
   "typeRoots": ["node_modules/@types"],
   "exclude": [
     "node_modules",
     "build",
     "dist",
     "scripts",
-    "src/.umi/*",
+    "packages/father/src/.umi/*",
     "webpack",
     "jest",
     "lib",

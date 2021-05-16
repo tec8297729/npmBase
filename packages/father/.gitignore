@@ -4,19 +4,14 @@
 /node_modules
 /.pnp
 .pnp.js
-**/node_modules/**
 **/.umi/**
 **/.umi-production/**
-
 # testing
 /coverage
-**/__snapshots__/**
 
 # production
 /build
-/h5
-/pc
-**/dist/**
+/dist
 .docz/
 
 # misc
@@ -31,4 +26,3 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 package-lock.json
-lerna-debug.log

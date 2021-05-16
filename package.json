@@ -1,111 +1,32 @@
 {
-  "name": "@kkb/npmbase",
-  "version": "0.0.1",
-  "description": "",
-  "publishConfig": {
-    "registry": "https://registry-npm.kaikeba.com/"
-  },
+  "name": "lowcode-ui",
+  "private": true,
+  "version": "1.0.0",
+  "description": "@kkb/lego-pc @kkb/lego-h5",
   "scripts": {
-    "dev": "father build --watch",
-    "build": "father build",
-    "doc:dev": "dumi dev",
-    "doc:build": "dumi build",
-    "test": "father test",
-    "test:cov": "father test --coverage"
+    "init": "lerna bootstrap",
+    "dev": "lerna run dev --parallel",
+    "build": "lerna run --stream --concurrency 1 --sort build",
+    "build:watch": "lerna run --parallel build:watch",
+    "shell": "lerna run shell --parallel",
+    "clean": "lerna run --parallel clean && lerna clean --yes",
+    "fix": "lerna run --parallel fix",
+    "link:npm": "npm config set registry=http://vd.kaikeba.com && npm config set @kkb:registry=https://registry-npm.kaikeba.com && lerna run --stream --concurrency 1 link:npm",
+    "unlink:npm": "lerna run unlink:npm",
+    "pub": "lerna publish",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.esm.js",
-  "types": "./dist/index.d.ts",
-  "maintainers": [
-    "zhanzhiqiang"
-  ],
-  "keywords": [],
-  "author": {
-    "name": "tec",
-    "email": "zzq8297729@163.com",
-    "url": "https://www.jonhuu.com"
-  },
-  "homepage": "https://www.jonhuu.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tec8297729/npmBase"
-  },
-  "files": [
-    "dist"
-  ],
+  "author": "",
   "license": "ISC",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
+  "workspaces": [
+    "packages/*"
   ],
-  "sideEffects": [
-    "dist/*",
-    "src/style/*",
-    "src/**/style/*",
-    "es/**/style/*",
-    "lib/**/style/*"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "commit-msg": "vcm"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "pretty-quick --staged",
-      "eslint src/ --fix",
-      "git add"
-    ]
-  },
-  "peerDependencies": {
-    "@ant-design/icons": ">=4.0.0",
-    "antd": ">=4.8.0",
-    "react": ">=16.9.0",
-    "react-dom": ">=16.9.0",
-    "react-router-dom": ">=5.0.0"
-  },
+  "resolutions": {},
   "dependencies": {
-    "@babel/runtime": "7.13.10",
-    "classnames": "2.2.6"
-  },
-  "devDependencies": {
-    "@ant-design/icons": "4.5.0",
-    "@types/classnames": "2.2.11",
-    "@types/enzyme": "^3.10.8",
-    "@types/jest": "^26.0.20",
-    "@types/react-router-dom": "5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.17.0",
-    "@typescript-eslint/parser": "^4.17.0",
-    "@typescript-eslint/typescript-estree": "^4.17.0",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
-    "antd": "4.13.1",
-    "dumi": "^1.1.7",
-    "enzyme": "^3.11.0",
-    "eslint": "^7.21.0",
-    "eslint-config-airbnb": "18.2.1",
-    "eslint-config-airbnb-base": "14.2.1",
-    "eslint-config-airbnb-typescript": "12.3.1",
-    "eslint-config-prettier": "8.1.0",
-    "eslint-formatter-pretty": "4.0.0",
-    "eslint-plugin-babel": "5.3.1",
-    "eslint-plugin-compat": "3.9.0",
-    "eslint-plugin-eslint-comments": "3.2.0",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-jest": "24.1.9",
-    "eslint-plugin-jsx-a11y": "6.4.1",
-    "eslint-plugin-promise": "4.3.1",
-    "eslint-plugin-react": "7.22.0",
-    "eslint-plugin-react-hooks": "4.2.0",
-    "eslint-plugin-unicorn": "28.0.2",
-    "father": "^2.30.2",
-    "husky": "^5.1.3",
-    "jest-cli": "^26.6.3",
-    "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0",
-    "react-router-dom": "5.2.0",
-    "typescript": "4.2.3",
-    "vcm-cli": "^1.0.5"
+    "chalk": "^4.1.0",
+    "child_process": "^1.0.2",
+    "inquirer": "^8.0.0",
+    "lerna": "^4.0.0",
+    "single-line-log": "^1.1.2"
   }
 }

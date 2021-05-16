@@ -1,0 +1,16 @@
+{
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "feat: updata publish %v",
+      "registry": "https://registry-npm.kaikeba.com/"
+    },
+    "bootstrap": {
+      "ignore": "component-*"
+    }
+  },
+  "packages": ["packages/*"]
+}
