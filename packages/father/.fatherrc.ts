@@ -1,8 +1,8 @@
-export default {
-  esm: {
-    type: 'rollup',
-    // mjs: true
-  },
+import url from 'rollup-plugin-url';
+import { IBundleOptions } from 'father';
+
+const options: IBundleOptions = {
+  esm: 'rollup',
   cjs: 'rollup',
   umd: {
     name: 'vgeForm',
@@ -14,9 +14,9 @@ export default {
     },
   },
   // extractCSS: true,
-  cssModules: {
-    generateScopedName: 'vgeForm_[name]__[local]___[hash:base64:5]',
-  },
+  // cssModules: {
+  //   generateScopedName: 'vgeForm_[name]__[local]___[hash:base64:5]',
+  // },
   runtimeHelpers: true,
   autoprefixer: {
     overrideBrowserslist: [
@@ -27,3 +27,6 @@ export default {
     ],
   },
 };
+
+
+export default options;
